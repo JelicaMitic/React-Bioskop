@@ -1,11 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import BioskopPocetna from './strane/BioskopPocetna';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   return (
     <div className="App">
-      <BioskopPocetna />
+      <Router>
+        <Routes>
+          <Route path="/" element={<BioskopPocetna />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
