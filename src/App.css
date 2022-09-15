@@ -28,3 +28,22 @@
   margin-left: 530px;
   width: 900px;
 }
+
+.slika-item {
+  width: 300px;
+  height: 300px;
+}
+
+.div-uskoro {
+  display: flex;
+  margin-top: 100px;
+  margin-left: 70px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#usk-h1{
+  margin-left: 750px;
+  margin-top: 30px;
+  font-size: 50px;
+}
