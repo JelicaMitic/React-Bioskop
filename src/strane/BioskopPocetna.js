@@ -1,7 +1,11 @@
 import Raspored from "../komponente/Raspored";
+import { useState } from 'react'
 
 
 function BioskopPocetna() {
+
+    const [danFilmovi, setDanFilmovi] = useState([]);
+
 
     const rasporedFilmova = [
         { id: 1, dan: 'Ponedeljak', naziv: 'Film 1', trajanje: 90 },
@@ -17,12 +21,24 @@ function BioskopPocetna() {
         { id: 11, dan: 'Nedelja', naziv: 'Film 11', trajanje: 130 },
     ]
 
+
+    function prikaziRaspored(dan) {
+        setDanFilmovi([])
+        rasporedFilmova.forEach(element => {
+            if (element.dan == dan)
+                setDanFilmovi(current => [...current, element]);
+        });
+    }
+
+
+
+
     return (
         <div>
 
             <h3 id="welcome-heading" className="text-primary">Dobro došli u ITECH bioskop</h3>
 
-            <Raspored raspored={rasporedFilmova} />
+            <Raspored raspored={rasporedFilmova} prikaz={prikaziRaspored} filmoviNaDan={danFilmovi} />
 
 
 

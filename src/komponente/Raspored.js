@@ -4,21 +4,14 @@ import Tabela from './Tabela';
 function Raspored(props) {
 
     const raspored = props.raspored
+    const filmoviNaDan = props.filmoviNaDan
 
     const [dan, setDan] = useState('');
-    const [danFilmovi, setDanFilmovi] = useState([]);
 
     function postaviDan(e) {
         setDan(e.target.value);
     }
 
-    function prikaziRaspored() {
-        setDanFilmovi([])
-        raspored.forEach(element => {
-            if (element.dan == dan)
-                setDanFilmovi(current => [...current, element]);
-        });
-    }
 
 
     return (
@@ -36,9 +29,9 @@ function Raspored(props) {
                 <option value="Nedelja">Nedelja</option>
             </select>
 
-            <button onClick={prikaziRaspored} className='btn btn-primary' id='btn-prikazi'>Pogledaj filmove</button>
+            <button onClick={() => props.prikaz(dan)} className='btn btn-primary' id='btn-prikazi'>Pogledaj filmove</button>
 
-            {danFilmovi.length > 0 ? <Tabela filmovi={danFilmovi} /> : ''}
+            {filmoviNaDan.length > 0 ? <Tabela filmovi={filmoviNaDan} /> : ''}
 
 
         </div>
